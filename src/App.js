@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState} from 'react';
+import userEvent from '@testing-library/user-event';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App({library}) {
+  const [data, setdata] = useState(null);
+  useEffect(() =>
+  {
+    fetch("https://api.github.com/users/moonhighway").then(response => response.json()).then(data => setdata(data));
+  }, []);
+  if(data){
+    return <pre>
+          {JSON.stringify(data, null, 2)}
+    </pre>
+  }
+   return (
+    <pre> Nothing Found</pre>
+   )
 }
 
 export default App;

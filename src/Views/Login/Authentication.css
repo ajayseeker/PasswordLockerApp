@@ -1,0 +1,38 @@
+.WelcomeHeader{
+    background-color: slategray;
+    text-align: center;
+    margin: 5% 0 auto;
+}
+
+.UserInputs{
+    background-color: cadetblue;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input{
+    margin: 0px 20px 0px 0px;
+    vertical-align: middle;
+}
+
+button{
+    margin: 0 10px;
+}
+
+.Image{
+    text-align: center;
+    vertical-align: middle;
+    margin: 40px auto;
+}
+.Registration{
+    background-color: blanchedalmond;
+    text-align: start;
+    margin: 100px 0 0 0;
+    padding: 0 0 0 10px;
+}
+
+.ShowPasswordCheckbox{
+    margin: 0 0 0 70px;
+}
