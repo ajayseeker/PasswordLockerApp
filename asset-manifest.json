@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PasswordLockerApp/static/css/main.f1b50b2d.css",
+    "main.js": "/PasswordLockerApp/static/js/main.c9a2717b.js",
+    "static/js/787.46bae7aa.chunk.js": "/PasswordLockerApp/static/js/787.46bae7aa.chunk.js",
+    "index.html": "/PasswordLockerApp/index.html",
+    "main.f1b50b2d.css.map": "/PasswordLockerApp/static/css/main.f1b50b2d.css.map",
+    "main.c9a2717b.js.map": "/PasswordLockerApp/static/js/main.c9a2717b.js.map",
+    "787.46bae7aa.chunk.js.map": "/PasswordLockerApp/static/js/787.46bae7aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1b50b2d.css",
+    "static/js/main.c9a2717b.js"
+  ]
+}
