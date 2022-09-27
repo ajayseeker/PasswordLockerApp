@@ -23,7 +23,7 @@ function UserInputs(){
     const togglePassword = () => {setIsSHown((isShown) => (!isShown))};
     // Implement input field
     const history = useNavigate();
-    useEffect(() => {console.log("hit"); console.log(data); if(data == true) history("/Credentials", {state : [`${userName}%23${password}`, "legit"]})},[data])
+    useEffect(() => {console.log("hit"); console.log(data); if(data == true) history("/Credentials", {state : `${userName}%23${password}`})},[data])
     return(
         <div className='UserInputs'>
             <label>UserName</label>&nbsp;&nbsp;

@@ -9,7 +9,7 @@ import { AddCredentialsData, RemoveCredential, GetCredentialData } from "../../S
 
 export function Credentials(){
     const location =  new useLocation();
-    console.log("location", location, location.state[0], location.state[1]);
+    console.log("location", location, location.secretKey, location.state);
     const [userHash, setUserHash] = new useState(location.state);
 
     return (
@@ -63,13 +63,12 @@ function AddCredentials({hash}){
 function GetTable({hashKey}) {
 
   const defaultColumns = [
-    // {
-    //   title: 'Index',
-    //   dataIndex: 'Index',
-    //   key: 'Index',
-    //   editable: false,
-    //   show : false
-    // },
+    {
+      title: 'Index',
+      dataIndex: 'Index',
+      key: 'Index',
+      editable: false,
+    },
     {
       title: 'User Name',
       dataIndex: 'UserName',
@@ -88,23 +87,7 @@ function GetTable({hashKey}) {
       key: 'WebSite',
       editable: true,
     },
-    {
-      title: 'operation',
-      dataIndex: 'operation',
-      render: (_,  key) =>
-        dataSet.length >= 1 ? (
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(key)}>
-            <a>Delete</a>
-          </Popconfirm>
-        ) : null,
-    },
   ];
-  const handleDelete = (key) => {
-    console.log(key);
-    RemoveCredential(hashKey, key.WebSite, key.UserName, key.Password);
-    const newData = dataSet.filter(item => item.key !== key);
-    window.location.reload();
-  };
   const [dataSet, setDataSet] = new useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -115,25 +98,13 @@ function GetTable({hashKey}) {
             dataTemp[i].Index = i+1;
             arr.push(dataTemp[i]);
           }
-          arr.sort((a, b) => {
-            let fa = a.UserName.toLowerCase(),
-                fb = b.UserName.toLowerCase();
-        
-            if (fa < fb) {
-                return -1;
-            }
-            if (fa > fb) {
-                return 1;
-            }
-            return 0;
-        });
-        setDataSet(arr);
+         arr.sort(function(a, b){ console.log(a, b); return a.UserName.localeCompare(b.UserName) > 0 });
+          setDataSet(arr);
      }
     getData();
  }, []);
 
   const handleSave = (row) => {
-    console.log(row);
     var index = dataSet.findIndex(element => element.Index == row.Index);
     var item = dataSet[index];
     RemoveCredential(hashKey, item.WebSite, item.UserName, item.Password);
